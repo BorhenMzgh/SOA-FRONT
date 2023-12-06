@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import ClientList from './Pages/ClientList';
+import FactureList from './Pages/FactureList';
+import {Route,Routes,BrowserRouter as Router} from 'react-router-dom';
+import HomePage from './Pages/HomePage';
+import FactureParClient from './Pages/FactureParClient';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+
+<Routes>
+<Route path="/" element={<HomePage />} />
+<Route path="/getFactures/:clientId" element={<FactureParClient />} />
+<Route path="/clients" element={<ClientList />} />
+<Route path="/factures" element={<FactureList/>} /> 
+
+</Routes>
+</Router>
+    </>
   );
 }
 
